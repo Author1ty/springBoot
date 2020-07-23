@@ -2,10 +2,13 @@ package com.wangyq;
 
 import com.wangyq.bean.Person;
 import com.wangyq.bean.PersonConfigValue;
+import com.wangyq.bean.PersonPropertySource;
+import com.wangyq.service.HelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -21,6 +24,12 @@ public class SpringBootConfigTest {
     Person person;
     @Autowired
     PersonConfigValue personConfigValue;
+    @Autowired
+    PersonPropertySource personPropertySource;
+    @Autowired
+    ApplicationContext ioc;
+
+
 
     @Test
     public void configTest(){
@@ -30,5 +39,17 @@ public class SpringBootConfigTest {
     @Test
     public void configValueTest(){
         System.out.println(personConfigValue.toString());
+    }
+
+    @Test
+    public void personPropertySource(){
+        System.out.println(personPropertySource.toString());
+    }
+
+
+    @Test
+    public void beanHelloService(){
+        boolean b = ioc.containsBean("helloService");
+        System.out.println(b);
     }
 }

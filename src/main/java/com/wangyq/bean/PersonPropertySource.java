@@ -1,32 +1,26 @@
 package com.wangyq.bean;
 
-import org.springframework.beans.factory.annotation.Value;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 配置文件的值映射到组件中,application.yml
- *
- * 只有这个组件时容器中的组件才能使用容器中的功能 Component
- *
- * 校验数据 Validated Email   只有ConfigurationProperties才支持  value注入方式不支持
- *
- * 只有ConfigurationProperties才支持支持复杂注解 map  list
- */
+@PropertySource(value = {"classpath:person.properties"})
 @Component
-public class PersonConfigValue {
-
-//    @Value("${person.str}")
+@ConfigurationProperties(prefix = "person1")
+public class PersonPropertySource {
     private String str;
-//    @Value("#{11*2}")
     private  int i;
-//    @Value("1996/11/18")
     private Date date;
     private Map map;
     private List list;
+    @Email
+    private String email;
 
     @Override
     public String toString() {
@@ -36,7 +30,16 @@ public class PersonConfigValue {
                 ", date=" + date +
                 ", map=" + map +
                 ", list=" + list +
+                ", email='" + email + '\'' +
                 '}';
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getStr() {

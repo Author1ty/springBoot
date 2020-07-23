@@ -19,7 +19,7 @@ import java.util.Map;
  * 只有ConfigurationProperties才支持支持复杂注解 map  list
  */
 @Component
-@ConfigurationProperties(prefix = "person")
+//@ConfigurationProperties(prefix = "person")
 @Validated
 public class Person {
     private String str;
