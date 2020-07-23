@@ -1,13 +1,12 @@
 package com.wangyq.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("main")
 public class HelloWordController {
 
-    @ResponseBody
     @RequestMapping("hello")
     public String  showHelloWord(){
         System.out.println("Hello Word!");
