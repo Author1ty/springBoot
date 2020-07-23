@@ -1,2 +1,18 @@
 server:
   port: 8081
+
+
+
+person:
+  str: 'Hello Word!'
+  i: 19
+  date: 1996/11/18
+  map:
+    k1: v1
+    k2: v2
+    str1: "Hello \n Word!"
+    str2: 'Hello \n Word!'
+  list:
+    - l1
+    - l2
+    - l3
