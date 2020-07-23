@@ -1,5 +1,7 @@
 package com.wangyq;
 
+import com.wangyq.bean.Person;
+import com.wangyq.bean.PersonConfigValue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SpringBootConfigTest {
     @Autowired
     Person person;
+    @Autowired
+    PersonConfigValue personConfigValue;
 
     @Test
     public void configTest(){
         System.out.println(person.toString());
+    }
+
+    @Test
+    public void configValueTest(){
+        System.out.println(personConfigValue.toString());
     }
 }
